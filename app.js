@@ -460,32 +460,19 @@
       oldBanner.remove();
     }
 
-    // Featured image if available for this node
-    let imageHtml = '';
+    // Featured image: only display the image inside the modal
+    let bodyHtml = '';
     if (node.image) {
-      imageHtml = `
+      bodyHtml = `
         <div class="node-featured-image-box">
           <img src="${node.image}" alt="${node.title}" class="node-featured-image">
         </div>
       `;
-    }
-
-    // Build body content
-    let bodyHtml = `
-      ${imageHtml}
-      <div class="modal-summary-box">
-        <strong>Síntesis del Nodo:</strong> ${node.summary}
-      </div>
-    `;
-
-    node.sections.forEach(sec => {
-      bodyHtml += `
-        <div class="modal-section-block">
-          <h3>${sec.heading}</h3>
-          <div>${sec.content}</div>
-        </div>
+    } else {
+      bodyHtml = `
+        <p style="text-align:center; padding: 30px; color: #64748B; font-weight: 600;">No hay imagen asignada para este nodo.</p>
       `;
-    });
+    }
 
     modalBody.innerHTML = bodyHtml;
     document.body.classList.add('modal-open');
