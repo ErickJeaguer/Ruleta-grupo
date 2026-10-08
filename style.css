@@ -458,7 +458,7 @@ main {
   background: #FFFFFF;
   border-radius: var(--radius-lg);
   width: 100%;
-  max-width: 860px;
+  max-width: 980px;
   max-height: 92vh;
   display: flex;
   flex-direction: column;
@@ -519,7 +519,7 @@ main {
 /* Featured image inside modal */
 .node-featured-image-box {
   width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 0;
   border-radius: var(--radius-md);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(10, 30, 63, 0.12);
@@ -537,7 +537,7 @@ main {
 .modal-header-strip {
   background: var(--navy-dark);
   color: #FFFFFF;
-  padding: 20px 28px;
+  padding: 16px 24px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -585,7 +585,7 @@ main {
 }
 
 .modal-body-scrollable {
-  padding: 28px;
+  padding: 16px;
   overflow-y: auto;
   font-size: 0.95rem;
   color: var(--slate-body);
