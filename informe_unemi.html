@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Informe Técnico / Académico - UNEMI</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Cinzel:wght@600;700;800&display=swap');
+
+    @page {
+      size: A4;
+      margin: 20mm 18mm 20mm 18mm;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', Arial, sans-serif;
+      color: #1a2233;
+      background-color: #f8fafc;
+      line-height: 1.6;
+      font-size: 10pt;
+    }
+
+    .report-paper {
+      max-width: 210mm;
+      margin: 20px auto;
+      background: #ffffff;
+      padding: 26mm 22mm;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e2e8f0;
+    }
+
+    /* Encabezado Institucional */
+    .header-unemi {
+      text-align: center;
+      border-bottom: 3px double #0A1E3F;
+      padding-bottom: 16px;
+      margin-bottom: 22px;
+    }
+
+    .header-unemi h2 {
+      font-size: 13.5pt;
+      font-weight: 800;
+      color: #0A1E3F;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
+    .header-unemi h3 {
+      font-size: 10.5pt;
+      font-weight: 700;
+      color: #1E3A8A;
+      margin-bottom: 2px;
+    }
+
+    .header-unemi h4 {
+      font-size: 9pt;
+      font-weight: 600;
+      color: #475569;
+      letter-spacing: 0.5px;
+      margin-bottom: 14px;
+    }
+
+    .title-banner {
+      background: linear-gradient(135deg, #0A1E3F 0%, #1E3A8A 100%);
+      color: #ffffff;
+      padding: 12px 16px;
+      border-radius: 4px;
+      margin: 10px 0 6px 0;
+    }
+
+    .title-banner h1 {
+      font-size: 12.5pt;
+      font-weight: 800;
+      letter-spacing: 0.8px;
+    }
+
+    .title-banner p {
+      font-size: 8.5pt;
+      color: #E2E8F0;
+      margin-top: 4px;
+      font-style: italic;
+    }
+
+    /* Tabla de Metadatos */
+    .metadata-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px 0;
+      font-size: 9pt;
+    }
+
+    .metadata-table th, .metadata-table td {
+      border: 1px solid #cbd5e1;
+      padding: 6px 12px;
+      text-align: left;
+    }
+
+    .metadata-table th {
+      background-color: #f1f5f9;
+      color: #0F172A;
+      width: 30%;
+      font-weight: 700;
+    }
+
+    .metadata-table td {
+      background-color: #ffffff;
+      color: #1e293b;
+    }
+
+    /* Secciones */
+    .section-title {
+      font-size: 11pt;
+      font-weight: 800;
+      color: #0A1E3F;
+      border-bottom: 2px solid #0A1E3F;
+      padding-bottom: 3px;
+      margin: 22px 0 10px 0;
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+    }
+
+    .subsection-title {
+      font-size: 10pt;
+      font-weight: 700;
+      color: #1E3A8A;
+      margin: 14px 0 6px 0;
+    }
+
+    .subsubsection-title {
+      font-size: 9.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      margin: 10px 0 4px 0;
+    }
+
+    p {
+      margin-bottom: 9px;
+      text-align: justify;
+    }
+
+    ul, ol {
+      margin-left: 22px;
+      margin-bottom: 11px;
+    }
+
+    li {
+      margin-bottom: 4px;
+      text-align: justify;
+    }
+
+    /* Tabla de Fases */
+    .phase-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 18px 0;
+      font-size: 8.8pt;
+    }
+
+    .phase-table th, .phase-table td {
+      border: 1px solid #cbd5e1;
+      padding: 7px 10px;
+    }
+
+    .phase-table th {
+      background: #0A1E3F;
+      color: #ffffff;
+      font-weight: 700;
+      text-align: left;
+    }
+
+    .phase-table td {
+      background: #ffffff;
+    }
+
+    .badge-status {
+      display: inline-block;
+      padding: 2px 7px;
+      border-radius: 3px;
+      font-weight: 700;
+      font-size: 7.8pt;
+    }
+
+    .badge-completed {
+      background: #dcfce7;
+      color: #15803d;
+      border: 1px solid #86efac;
+    }
+
+    .callout-box {
+      background: #eff6ff;
+      border-left: 4px solid #1e3a8a;
+      padding: 11px 15px;
+      border-radius: 4px;
+      margin: 14px 0;
+      font-size: 9pt;
+    }
+
+    .callout-box strong {
+      color: #0a1e3f;
+    }
+
+    /* Firmas */
+    .signatures-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-top: 35px;
+      margin-bottom: 25px;
+      page-break-inside: avoid;
+    }
+
+    .signature-item {
+      text-align: center;
+      padding-top: 25px;
+      border-top: 1.5px solid #334155;
+    }
+
+    .signature-item p.name {
+      font-weight: 800;
+      font-size: 9pt;
+      color: #0f172a;
+    }
+
+    .signature-item p.role {
+      font-size: 8.2pt;
+      color: #64748b;
+      margin-top: 2px;
+    }
+
+    /* Anexos Fotográficos */
+    .annex-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 14px;
+    }
+
+    .annex-card {
+      border: 1px solid #cbd5e1;
+      border-radius: 6px;
+      padding: 12px;
+      background: #ffffff;
+      page-break-inside: avoid;
+    }
+
+    .annex-card h4 {
+      font-size: 9.2pt;
+      font-weight: 700;
+      color: #0a1e3f;
+      margin-bottom: 5px;
+    }
+
+    .annex-card p.caption {
+      font-size: 8.2pt;
+      color: #64748b;
+      margin-bottom: 8px;
+    }
+
+    .annex-img {
+      width: 100%;
+      height: auto;
+      border: 1px solid #e2e8f0;
+      border-radius: 4px;
+      display: block;
+    }
+
+    .page-break {
+      page-break-before: always;
+      break-before: page;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+      }
+      .report-paper {
+        margin: 0;
+        padding: 0;
+        box-shadow: none;
+        border: none;
+      }
+      .no-print {
+        display: none !important;
+      }
+    }
+
+    /* Botón flotante para imprimir */
+    .print-bar {
+      position: sticky;
+      top: 10px;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 15px;
+      z-index: 100;
+    }
+
+    .btn-print {
+      background: #0A1E3F;
+      color: #ffffff;
+      border: none;
+      padding: 10px 24px;
+      font-size: 9.5pt;
+      font-weight: 700;
+      border-radius: 20px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(10, 30, 63, 0.3);
+      transition: transform 0.15s;
+    }
+
+    .btn-print:hover {
+      transform: scale(1.03);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="print-bar no-print">
+    <button class="btn-print" onclick="window.print()">🖨️ Imprimir / Guardar como PDF (A4)</button>
+  </div>
+
+  <div class="report-paper">
+
+    <!-- ENCABEZADO -->
+    <header class="header-unemi">
+      <h2>Universidad Estatal de Milagro</h2>
+      <h3>Facultad de Educación</h3>
+      <h4>Carrera de Educación Inicial Modalidad Semipresencial</h4>
+
+      <div class="title-banner">
+        <h1>INFORME TÉCNICO / ACADÉMICO</h1>
+        <p>DISEÑO Y APLICACIÓN DE UN RECURSO DIDÁCTICO GAMIFICADO DUAL (RULETA VIRTUAL Y FÍSICA) MEDIADO POR INTELIGENCIA ARTIFICIAL GENERATIVA PARA LA EVALUACIÓN CURRICULAR SITUADA</p>
+      </div>
+    </header>
+
+    <!-- METADATOS -->
+    <table class="metadata-table">
+      <tr>
+        <th>CÓDIGO DE INFORME:</th>
+        <td>INF-UNEMI-2026-001</td>
+      </tr>
+      <tr>
+        <th>ELABORADO POR:</th>
+        <td>Equipo Estudiantil / Investigador de Educación Inicial</td>
+      </tr>
+      <tr>
+        <th>DIRIGIDO A:</th>
+        <td>PhD. Jefferson Flor Montecé</td>
+      </tr>
+      <tr>
+        <th>ASIGNATURA / DEPARTAMENTO:</th>
+        <td>Gestión Curricular y Entornos Didácticos de Aprendizaje</td>
+      </tr>
+      <tr>
+        <th>FECHA DE PRESENTACIÓN:</th>
+        <td>08 de Octubre de 2026</td>
+      </tr>
+      <tr>
+        <th>PERIODO ACADÉMICO:</th>
+        <td>2026 - I</td>
+      </tr>
+    </table>
+
+    <!-- 1. OBJETIVOS -->
+    <h2 class="section-title">1. Objetivos del Informe</h2>
+
+    <h3 class="subsection-title">1.1. Objetivo General</h3>
+    <p>
+      Desarrollar y documentar de forma técnica, objetiva y detallada el diseño, fundamentación pedagógica constructivista e implementación de una herramienta interactiva dual (ruleta web y física homologada), co-diseñada mediante modelos de Inteligencia Artificial generativa, para la dinamización evaluativa de los nodos formativos de la Unidad Educativa Particular New Düsseldorf, manteniendo los estándares de calidad académica y pertinencia contextual de la Universidad Estatal de Milagro (UNEMI).
+    </p>
+
+    <h3 class="subsection-title">1.2. Objetivos Específicos</h3>
+    <ul>
+      <li><strong>Caracterizar el entorno institucional y clima escolar:</strong> Analizar las relaciones de convivencia armónica, disciplina positiva no punitiva y la cultura de altas expectativas formativas sustentadas en la pedagogía humboldtiana (Nodo I).</li>
+      <li><strong>Sistematizar el rol mediador docente:</strong> Estructurar las funciones esenciales de gestión del aula y diseñar la estrategia didáctica <em>"Ecosistema de Indagación Aplicada"</em> basada en el Aprendizaje Basado en Problemas (ABP) y el Constructivismo Sociocultural (Nodo II).</li>
+      <li><strong>Articular la vinculación comunitaria y proyecto de vida:</strong> Proponer el programa integral <em>"Humboldt Futuro"</em> para vincular a los educandos con las demandas productivas y sociales del cantón Milagro (Nodo III).</li>
+      <li><strong>Implementar y validar el artefacto tecnológico:</strong> Construir una ruleta interactiva virtual de selección sorpresa (HTML5/Canvas/Web Audio) y su réplica física para evaluación situada en el aula, documentando el flujo metodológico asistido por IA generativa (Gemini, Antigravity, Anthropic y Manus).</li>
+    </ul>
+
+    <!-- 2. INTRODUCCIÓN Y ANTECEDENTES -->
+    <h2 class="section-title">2. Introducción y Antecedentes</h2>
+    <p>
+      En los modelos educativos contemporáneos, la transición hacia pedagogías activas exige superar las dinámicas expositivas memorísticas y pasivas. En la formación docente y en la práctica escolar de la región Costa del Ecuador, se evidencia la necesidad de implementar instrumentos lúdico-pedagógicos que estimulen la participación autónoma y el pensamiento crítico.
+    </p>
+    <p>
+      El presente proyecto toma como escenario de intervención técnica a la <strong>Unidad Educativa Particular New Düsseldorf</strong> (ubicada en el cantón Milagro, provincia del Guayas), una institución que integra el humanismo pedagógico con la formación científica humboldtiana y el multilingüismo. A fin de propiciar una evaluación diagnóstica y formativa rigurosa, se planteó la creación de un dispositivo didáctico dual: una <strong>ruleta sorpresa interactiva virtual</strong> complementada con una <strong>versión física manipulable</strong>, garantizando correspondencia biunívoca entre la tecnología digital y los recursos concretos de aula.
+    </p>
+
+    <!-- 3. METODOLOGÍA / DESARROLLO -->
+    <h2 class="section-title">3. Metodología / Desarrollo</h2>
+    <p>
+      La metodología del proyecto se estructuró bajo un <strong>enfoque descriptivo-proyectual y de diseño instruccional interactivo</strong>, articulando fundamentos teóricos del constructivismo con un flujo tecnológico asistido por Inteligencia Artificial Generativa.
+    </p>
+
+    <h3 class="subsection-title">3.1. Fundamentación Teórico-Pedagógica: El Paradigma Constructivista</h3>
+    <p>
+      El diseño de las experiencias y de los tres nodos pedagógicos se apoya en los autores clásicos y contemporáneos del constructivismo:
+    </p>
+    <ul>
+      <li>
+        <strong>Constructivismo Sociocultural (Vygotsky, 1978, 1979):</strong> Concibe el aprendizaje como un proceso socialmente mediado. Los artefactos culturales y didácticos (como la ruleta y las fichas analíticas) operan como herramientas de mediación semiótica. Se aplica el postulado de la <em>Zona de Desarrollo Próximo (ZDP)</em>, donde la distancia entre el nivel real de desarrollo del estudiante y el nivel potencial es dinamizada por la mediación del docente y el diálogo entre pares.
+      </li>
+      <li>
+        <strong>Constructivismo Genético y Conflicto Cognitivo (Piaget, 1970, 1985):</strong> El conocimiento no es una copia pasiva de la realidad, sino una construcción resultante de la interacción del sujeto con el medio mediante procesos de <em>asimilación, acomodación y equilibración</em>. La mecánica de la "ruleta sorpresa" introduce desequilibrios cognitivos deliberados que motivan la curiosidad epistémica y la reestructuración conceptual.
+      </li>
+      <li>
+        <strong>Aprendizaje Significativo y Organizadores Previos (Ausubel, 1976, 2002):</strong> Establece que el aprendizaje requiere enlazar la nueva información con los conceptos inclusores preexistentes en la estructura cognitiva del alumno. Las infografías curriculares y los resúmenes visuales de cada nodo actúan como <em>organizadores previos</em> que facilitan el anclaje y reducen la sobrecarga cognitiva.
+      </li>
+      <li>
+        <strong>Andamiaje Guiado y Descubrimiento (Bruner, 1984, 1996):</strong> Se retoma el concepto de <em>scaffolding</em> (andamiaje), donde el docente proporciona apoyos ajustables que se retiran progresivamente conforme el estudiante asume la autorregulación de su aprendizaje.
+      </li>
+      <li>
+        <strong>Enseñanza Situada y Aprendizaje Basado en Problemas (Coll, 2001; Díaz-Barriga, 2006):</strong> Postulan que el aprendizaje es situado e indisociable del contexto sociocultural donde se aplica. Esto sustenta la estrategia del Nodo II, vinculando los desafíos pedagógicos a problemáticas reales del entorno agrícola y tecnológico de Milagro.
+      </li>
+    </ul>
+
+    <h3 class="subsection-title">3.2. Ecosistema Tecnológico y Flujo de Co-Creación con Inteligencia Artificial</h3>
+    <p>
+      El desarrollo del proyecto integró de manera transparente y rigurosa herramientas avanzadas de Inteligencia Artificial para cada etapa del ciclo de vida didáctico y computacional:
+    </p>
+    <ul>
+      <li>
+        <strong>Redacción Conceptual y Diagnóstico Institucional (Google Gemini):</strong> El contexto general, el ideario pedagógico, la caracterización del clima escolar y la estructuración narrativa de los tres nodos temáticos de la Unidad Educativa Particular New Düsseldorf fueron concebidos y redactados con el apoyo de modelos fundacionales de Google (Gemini), contextualizando la realidad socioeducativa del cantón Milagro.
+      </li>
+      <li>
+        <strong>Diseño de la Identidad Visual e Isotipo Institucional (Manus):</strong> El escudo oficial institucional de New Düsseldorf fue generado a través de la herramienta de IA <em>Manus</em>, sintetizando los elementos heráldicos de la institución: la corona ducal dorada, el libro abierto de la ciencia, el puente y skyline urbano, flanqueados por laureles académicos sobre el lema oficial.
+      </li>
+      <li>
+        <strong>Diseño Gráfico de Interfaz (UI/UX) e Infografías Curriculares (Google Gemini):</strong> Se utilizaron modelos de Gemini para la definición de la paleta cromática institucional (Azul Marino <code>#0A1E3F</code>, Dorado Académico <code>#B45309</code> y Verde Azulado <code>#0F766E</code>), la ergonomía visual accesible para niños y docentes, y la composición infográfica detallada que sintetiza los Nodos I y II.
+      </li>
+      <li>
+        <strong>Ingeniería de Software y Programación Agéntica (Google Antigravity + Anthropic Claude):</strong> La arquitectura de software y el código fuente de la aplicación web interactiva se desarrollaron en el entorno agéntico <em>Google Antigravity</em> utilizando modelos avanzados de <em>Anthropic (Claude Sonnet)</em>. Esto permitió codificar en JavaScript modular nativo: el motor de física de giro sobre <em>HTML5 Canvas</em> (con aceleración impulsiva, fricción angular de desaceleración gradual y colisión de aguja con sectores), la síntesis de audio procedural en tiempo real mediante <em>Web Audio API</em> (generando clics de aguja y acordes armónicos mayores sin dependencias externas), el sistema reactivo de modales de revelación sorpresa y las hojas de estilo de impresión técnica <code>@media print</code>.
+      </li>
+    </ul>
+
+    <div class="page-break"></div>
+
+    <h3 class="subsection-title">3.3. Estructura y Desarrollo de los Tres Nodos Curriculares</h3>
+    <p>
+      La ruleta distribuye de manera equitativa tres sectores analíticos fundamentales:
+    </p>
+    <ul>
+      <li>
+        <strong>Nodo I — Entorno Institucional:</strong> Diagnóstico y fundamentación del clima de seguridad socioafectiva, comunicación dialógica horizontal, código de convivencia consensuado y ambientes estimulantes (aulas climatizadas, laboratorios de biotecnología, biohuerto e invernadero hidropónico). Superación del modelo memorístico pasivo mediante un 45% de ponderación evaluativa en informes prácticos formato IEEE/APA y ensayos empíricos.
+      </li>
+      <li>
+        <strong>Nodo II — Rol del Docente Mediador:</strong> Sistematización de las 5 competencias docentes esenciales (diseño curricular situado, andamiaje cognitivo mediante preguntas socráticas, gestión dinámica de ambientes grupales, evaluación formativa auténtica por rúbricas y liderazgo socioemocional asistido por el DECE). Propone la estrategia <em>"Ecosistema de Indagación Aplicada"</em> estructurada en cinco fases secuenciales (problematización del estrés hídrico de Milagro, equipos colaborativos interdependientes, contrastación empírica, prototipado de solución y defensa plenaria dialógica).
+      </li>
+      <li>
+        <strong>Nodo III — Comunidad y Proyecto de Vida:</strong> Presentación formal del programa <em>"Humboldt Futuro: Semillero de Liderazgo Vocacional y Vinculación Comunitaria"</em>, estructurado en cuatro ejes operativos (mentoría y perfil vocacional temprano con universidades, Aprendizaje-Servicio Comunitario [ApS] asesorando a pequeños productores agrícolas en agroecología y alfabetización digital, encuentros trimestrales de diálogo con familias e incubadora institucional de iniciativas juveniles de graduación).
+      </li>
+    </ul>
+
+    <h3 class="subsection-title">3.4. Fases del Proyecto</h3>
+    <table class="phase-table">
+      <thead>
+        <tr>
+          <th style="width: 25%;">Fase</th>
+          <th style="width: 55%;">Descripción de Actividades</th>
+          <th style="width: 20%;">Estado / Resultado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Fase 1: Diagnóstico</strong></td>
+          <td>Revisión bibliográfica constructivista (Vygotsky, Piaget, Ausubel), formulación de los 3 nodos en Google Gemini y conceptualización heráldica en Manus.</td>
+          <td><span class="badge-status badge-completed">Completado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fase 2: Ejecución</strong></td>
+          <td>Programación en Antigravity con modelos de Anthropic (Canvas, Web Audio, DOM reactivo), generación de infografías en Gemini y diagramación del kit físico para impresión.</td>
+          <td><span class="badge-status badge-completed">Completado</span></td>
+        </tr>
+        <tr>
+          <td><strong>Fase 3: Evaluación</strong></td>
+          <td>Pruebas de usabilidad de la ruleta dual, comprobación de correspondencia 1:1, validación de la retención conceptual y elaboración del informe técnico académico.</td>
+          <td><span class="badge-status badge-completed">Completado</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- 4. RESULTADOS Y DISCUSIÓN -->
+    <h2 class="section-title">4. Resultados y Discusión</h2>
+    <p>
+      La aplicación del recurso gamificado dual generó un incremento notable en el interés, la atención sostenida y el compromiso de los participantes. Al incorporar la mecánica de <em>ruleta sorpresa</em>, se redujo la ansiedad previa a la exposición evaluativa y se estimuló la curiosidad epistemológica.
+    </p>
+
+    <div class="callout-box">
+      <strong>Nota / Hallazgo Clave:</strong>
+      <p style="margin-top: 4px; margin-bottom: 0;">
+        La articulación de una herramienta virtual interactiva con una réplica física manipulable permite una verdadera inclusión educativa en contextos con y sin conectividad digital. Además, la co-creación asistida por Inteligencia Artificial demostró que la tecnología generativa optimiza la producción de materiales didácticos de alta calidad estética y rigor pedagógico sin sustituir el criterio pedagógico y reflexivo del docente.
+      </p>
+    </div>
+
+    <!-- 5. CONCLUSIONES Y RECOMENDACIONES -->
+    <h2 class="section-title">5. Conclusiones y Recomendaciones</h2>
+
+    <h3 class="subsection-title">5.1. Conclusiones</h3>
+    <ul>
+      <li>Se diseñó e implementó con éxito la ruleta interactiva dual (web y física), cumpliendo con los estándares de diseño técnico y rigor pedagógico de la Facultad de Educación de la UNEMI.</li>
+      <li>El clima escolar caracterizado en el Nodo I evidencia que la disciplina positiva y la convivencia dialógica son requisitos indispensables para consolidar una cultura de excelencia académica y respeto mutuo.</li>
+      <li>La propuesta del Nodo II demuestra que el docente contemporáneo debe asumir un rol de mediador sociocultural y andamiaje cognitivo, implementando estrategias situadas como el ABP para conectar el currículo con problemáticas comunitarias reales.</li>
+      <li>El programa <em>"Humboldt Futuro"</em> (Nodo III) ofrece un puente sólido entre la institución educativa y el sector agroindustrial y social de Milagro, proyectando a los bachilleres hacia una elección vocacional consciente y transformadora.</li>
+    </ul>
+
+    <h3 class="subsection-title">5.2. Recomendaciones</h3>
+    <ul>
+      <li>Integrar de forma sistemática este tipo de recursos interactivos y físicos en los talleres de práctica docente de la carrera de Educación Inicial.</li>
+      <li>Socializar el kit imprimible con las instituciones educativas de convenio de la UNEMI como alternativa de evaluación diagnóstica de bajo costo y alto impacto pedagógico.</li>
+      <li>Fomentar la adopción ética y pedagógica de la Inteligencia Artificial generativa en la formación docente como catalizador de innovación didáctica.</li>
+    </ul>
+
+    <!-- 6. FIRMAS -->
+    <h2 class="section-title">6. Firmas de Responsabilidad</h2>
+    <p style="font-size: 8.5pt; color: #64748b; margin-bottom: 20px;">Para constancia de lo elaborado y revisado, firman:</p>
+
+    <div class="signatures-block">
+      <div class="signature-item">
+        <p class="name">[Nombre del Estudiante / Autor]</p>
+        <p class="role">Estudiante / Investigador - UNEMI<br>Facultad de Educación</p>
+      </div>
+      <div class="signature-item">
+        <p class="name">PhD. Jefferson Flor Montecé</p>
+        <p class="role">Docente Evaluador / Director<br>Universidad Estatal de Milagro</p>
+      </div>
+    </div>
+
+    <div class="page-break"></div>
+
+    <!-- 7. ANEXOS Y REFERENCIAS -->
+    <h2 class="section-title">7. Anexos y Referencias</h2>
+
+    <h3 class="subsection-title">Referencias Bibliográficas (Normas APA 7ma Edición)</h3>
+    <ul style="font-size: 8.8pt; line-height: 1.45;">
+      <li>Ausubel, D. P. (1976). <em>Psicología educativa: Un punto de vista cognoscitivo</em>. Editorial Trillas.</li>
+      <li>Ausubel, D. P. (2002). <em>Adquisición y retención del conocimiento: Una perspectiva cognitiva</em>. Paidós.</li>
+      <li>Bruner, J. S. (1984). <em>Acción, pensamiento y lenguaje</em>. Alianza Editorial.</li>
+      <li>Bruner, J. S. (1996). <em>The culture of education</em>. Harvard University Press.</li>
+      <li>Coll, C. (2001). <em>Constructivismo en el aula</em>. Editorial Graó.</li>
+      <li>Díaz-Barriga, F. (2006). <em>Enseñanza situada: Vínculo entre la escuela y la vida</em>. McGraw-Hill Interamericana.</li>
+      <li>Ministerio de Educación del Ecuador. (2021). <em>Guía metodológica para la construcción participativa del Código de Convivencia</em>. MinEduc.</li>
+      <li>Piaget, J. (1970). <em>La epistemología genética</em>. Red Editorial Iberoamericana.</li>
+      <li>Piaget, J. (1985). <em>El criterio moral en el niño</em>. Ediciones Martínez Roca.</li>
+      <li>Unidad Educativa Particular New Düsseldorf. (2026). <em>Proyecto Educativo Institucional (PEI) y Dossier Curricular</em>. Milagro, Ecuador.</li>
+      <li>Vygotsky, L. S. (1978). <em>Mind in society: The development of higher psychological processes</em>. Harvard University Press.</li>
+      <li>Vygotsky, L. S. (1979). <em>El desarrollo de los procesos psicológicos superiores</em>. Crítica / Grijalbo.</li>
+    </ul>
+
+    <h3 class="subsection-title" style="margin-top: 20px;">Evidencias Fotográficas y Anexos Técnicos</h3>
+
+    <div class="annex-grid">
+      <div class="annex-card">
+        <h4>Anexo 1: Interfaz de la Ruleta Virtual Interactiva en Funcionamiento</h4>
+        <p class="caption">Aplicativo web desarrollado en Antigravity con modelos de Anthropic, Canvas rotacional, Web Audio API y logotipo creado en Manus.</p>
+        <img src="captura_ruleta.png" alt="Ruleta Virtual" class="annex-img">
+      </div>
+
+      <div class="annex-card">
+        <h4>Anexo 2: Infografía Curricular — Nodo I: Entorno Institucional y Clima Escolar</h4>
+        <p class="caption">Esquema conceptual diseñado con modelos de Gemini sobre convivencia democrática, pedagogía humboldtiana y cultura de paz.</p>
+        <img src="nodo1.jpg" alt="Nodo I" class="annex-img">
+      </div>
+
+      <div class="annex-card">
+        <h4>Anexo 3: Infografía Curricular — Nodo II: Rol del Docente Mediador</h4>
+        <p class="caption">Sistematización diseñada con Gemini de las funciones de gestión y las 5 fases del Ecosistema de Indagación Aplicada (ABP).</p>
+        <img src="nodo2.jpg" alt="Nodo II" class="annex-img">
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>

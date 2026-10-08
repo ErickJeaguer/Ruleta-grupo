@@ -1,0 +1,110 @@
+/* Estilos de Impresión Académica e Institucional */
+@media print {
+  body {
+    background: #FFFFFF !important;
+    color: #000000 !important;
+    font-size: 10.5pt;
+  }
+
+  header,
+  .nav-tabs,
+  .header-controls,
+  .btn-print-action,
+  .guide-box,
+  .mystery-banner,
+  .spin-action-row,
+  .side-panel,
+  #playTab,
+  #dossierTab {
+    display: none !important;
+  }
+
+  /* Si el modal no está activo, imprimir la pestaña física */
+  body:not(.modal-open) #printTab {
+    display: block !important;
+  }
+
+  /* Si el modal está activo al imprimir */
+  .modal-overlay.active {
+    position: static !important;
+    background: none !important;
+    display: block !important;
+    padding: 0 !important;
+  }
+
+  .modal-overlay.active .modal-content-card {
+    box-shadow: none !important;
+    border: none !important;
+    max-width: 100% !important;
+    max-height: none !important;
+    transform: none !important;
+  }
+
+  .modal-overlay.active .modal-header-strip {
+    background: #0A1E3F !important;
+    color: #FFFFFF !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .modal-overlay.active .modal-footer-actions,
+  .modal-overlay.active .modal-btn-close {
+    display: none !important;
+  }
+
+  .print-kit-wrapper {
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .print-kit-header {
+    border-bottom: 2px solid #000 !important;
+    margin-bottom: 15px !important;
+    padding-bottom: 10px !important;
+  }
+
+  .print-preview-columns {
+    display: block !important;
+  }
+
+  .physical-wheel-container {
+    text-align: center !important;
+    margin-bottom: 20px !important;
+  }
+
+  .physical-wheel-container canvas {
+    max-width: 165mm !important;
+    max-height: 165mm !important;
+    border: 2px dashed #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  .needle-cutout-card {
+    border: 2px dashed #000000 !important;
+    margin-top: 15px !important;
+    page-break-inside: avoid;
+  }
+
+  .cards-deck-grid {
+    page-break-before: always;
+    break-before: page;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 16px !important;
+  }
+
+  .physical-card-item {
+    border: 1.5px solid #000000 !important;
+    padding: 14px 18px !important;
+    page-break-inside: avoid;
+  }
+
+  .physical-card-item .card-header-tag {
+    color: #000000 !important;
+    border: 1px solid #000000 !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

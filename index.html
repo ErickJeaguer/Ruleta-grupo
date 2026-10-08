@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ruleta — New Düsseldorf</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="print.css" media="print">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="brand-wrapper">
+        <img src="logo.png" alt="Unidad Educativa New Düsseldorf" class="brand-logo-img">
+        <div class="brand-info">
+          <h1>Ruleta</h1>
+        </div>
+      </div>
+
+      <nav class="nav-tabs">
+        <button class="nav-tab-btn active" data-target="playTab">Ruleta Interactiva</button>
+        <button class="nav-tab-btn" data-target="printTab">Kit Físico Imprimible</button>
+      </nav>
+
+      <div class="header-controls">
+        <button class="btn-toggle-sound" id="toggleSoundBtn">Sonido: Activado</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- RULETA INTERACTIVA -->
+    <section id="playTab" class="tab-pane active">
+      <div class="interactive-layout">
+        
+        <div class="wheel-card">
+          <div class="mystery-banner">
+            <span>Ruleta Sorpresa — Gire para revelar el nodo temático asignado a la exposición.</span>
+          </div>
+
+          <div class="wheel-container">
+            <svg class="wheel-pointer" viewBox="0 0 40 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M20 46L5 12C3 7 7 2 13 2H27C33 2 37 7 35 12L20 46Z" fill="#0A1E3F" stroke="#D4AF37" stroke-width="2.5"/>
+              <circle cx="20" cy="12" r="4.5" fill="#FFFFFF" stroke="#0A1E3F" stroke-width="2"/>
+            </svg>
+
+            <canvas id="wheelCanvas" width="480" height="480"></canvas>
+
+            <button class="wheel-center-button" id="centerSpinBtn" title="Girar ruleta">
+              <span>GIRAR</span>
+            </button>
+          </div>
+
+          <div class="spin-action-row">
+            <button class="btn-primary-spin" id="primarySpinBtn">
+              GIRAR RULETA
+            </button>
+          </div>
+        </div>
+
+        <aside class="side-panel">
+          <div class="panel-card">
+            <h3>Nodos Pedagógicos</h3>
+            <p style="font-size: 0.82rem; color: #64748B; margin-bottom: 12px;">
+              Haga clic sobre cualquier nodo para consultar su contenido, o gire la ruleta para selección aleatoria:
+            </p>
+            <div class="nodes-quick-list" id="quickNodesList"></div>
+        </aside>
+
+      </div>
+    </section>
+
+    <!-- KIT FÍSICO IMPRIMIBLE -->
+    <section id="printTab" class="tab-pane">
+      <div class="print-kit-wrapper">
+        
+        <div class="print-kit-header">
+          <div>
+            <h2>Kit de Ruleta Física y Fichas Académicas</h2>
+            <p>Plantilla circular de 3 secciones idéntica a la versión virtual, con fichas de estudio para trabajo presencial en el aula.</p>
+          </div>
+          <button class="btn-print-action" id="btnPrintKitAction">
+            Imprimir Plantilla (A4 / Carta)
+          </button>
+        </div>
+
+        <div class="guide-box">
+          <h4>Instrucciones para el Armado de la Versión Física</h4>
+          <ol style="margin-left: 20px; margin-top: 6px; line-height: 1.55;">
+            <li>Imprima en cartulina o papel de gramaje medio (180g - 240g).</li>
+            <li>Recorte el disco circular siguiendo la línea exterior punteada.</li>
+            <li>Recorte la flecha indicadora y perfore el centro con la cruz roja (+).</li>
+            <li>Fije la flecha al centro con un encuadernador de dos patas (chinche mariposa).</li>
+            <li>Utilice las fichas recortables de los Nodos I, II y III para la exposición.</li>
+          </ol>
+        </div>
+
+        <div class="print-preview-columns">
+          <div class="physical-wheel-container">
+            <h3 style="font-family: 'Cinzel', serif; margin-bottom: 12px; color: #0A1E3F;">Disco de la Ruleta Física</h3>
+            <canvas id="physicalCanvas" width="460" height="460"></canvas>
+          </div>
+
+          <div>
+            <div class="needle-cutout-card">
+              <h4 style="font-family: 'Cinzel', serif; color: #0A1E3F; margin-bottom: 6px;">Flecha Indicadora para Recorte</h4>
+              <p style="font-size: 0.82rem; color: #64748B; margin-bottom: 12px;">Perforar en el punto central (+) y unir al disco con encuadernador giratorio:</p>
+              <svg width="110" height="140" viewBox="0 0 110 140" style="margin: 0 auto; display: block;">
+                <polygon points="55,10 95,75 70,75 70,125 40,125 40,75 15,75" fill="#0A1E3F" stroke="#000000" stroke-width="2" stroke-dasharray="4,4"/>
+                <circle cx="55" cy="105" r="7" fill="#FFFFFF" stroke="#000000" stroke-width="2"/>
+                <text x="55" y="108" font-size="9" text-anchor="middle" font-weight="bold">+</text>
+              </svg>
+            </div>
+
+            <div style="margin-top: 18px; padding: 16px; background: #F8FAFC; border: 1px solid #CBD5E1; border-radius: 8px;">
+              <h4 style="font-family: 'Cinzel', serif; color: #0A1E3F; margin-bottom: 6px;">Correspondencia 1 a 1</h4>
+              <p style="font-size: 0.85rem; color: #475569;">
+                La división cromática y los títulos del disco físico corresponden exactamente con la versión virtual y las fichas de estudio.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cards-deck-grid" id="printableCardsContainer"></div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Modal de Revelación -->
+  <div class="modal-overlay" id="revealModal">
+    <div class="modal-content-card">
+      <div class="modal-header-strip" id="modalHeaderStrip">
+        <div class="modal-header-titles">
+          <span class="node-kicker" id="modalNodeKicker">NODO SELECCIONADO</span>
+          <h2 id="modalNodeTitle">Título del Nodo</h2>
+          <p id="modalNodeSubtitle">Subtítulo institucional</p>
+        </div>
+        <button class="modal-btn-close" id="modalCloseBtn" title="Cerrar">&times;</button>
+      </div>
+
+      <div class="modal-body-scrollable" id="modalNodeBody"></div>
+
+      <div class="modal-footer-actions">
+        <button class="btn-secondary" id="modalDismissBtn">Cerrar</button>
+        <button class="btn-modal-action" id="modalPrintBtn">Imprimir Informe</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="audio.js"></script>
+  <script src="presets.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
