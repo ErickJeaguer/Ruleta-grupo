@@ -92,7 +92,7 @@ const INSTITUTIONAL_NODES = [
     color: "#0F766E",
     textColor: "#FFFFFF",
     badgeColor: "#115E59",
-    image: null,
+    image: "nodo3.jpg",
     summary: "Diseño y presentación formal del proyecto 'Humboldt Futuro: Semillero de Liderazgo Vocacional y Vinculación Comunitaria'.",
     sections: [
       {
